@@ -1,0 +1,131 @@
+.ecommerce-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+}
+
+.ecommerce-header {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.ecommerce-background {
+    width: 48%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.ecommerce-content-container {
+    width: 22%;
+    padding: 0 50px 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #333;
+    text-align: left;
+    z-index: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    position: relative;
+    margin: 18px;
+}
+
+.ecommerce-login,
+.ecommerce-register {
+    width: 100%;
+}
+
+.logo-container {
+    margin-bottom: 32px;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+.ecommerce-login h2,
+.ecommerce-register h2 {
+    font-size: 1.6em;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.ecommerce-login p,
+.ecommerce-register p {
+    margin-top: 8px;
+    font-size: 0.8em;
+    margin-bottom: 40px;
+    text-align: left;
+    color: #666;
+}
+
+.form-group {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 0.8em;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 4px;
+}
+
+.ecommerce-btn {
+    width: 100%;
+    background-color: var(--secondary-color);
+    color: white;
+    margin-top: 8px;
+    border: none;
+    padding: 15px;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+.ecommerce-btn:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.account-option {
+    margin-left: 20%;
+    padding-top: 8px;
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+.ecommerce-link {
+    color: blue;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ecommerce-link:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: red !important;
+    margin-bottom: 10px !important;
+}

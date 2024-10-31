@@ -25,7 +25,13 @@ const loginUser = async (req, res) => {
             process.env.SECRET_KEY,
             { expiresIn: "1h" }
         );
-        res.status(200).json({ success: true, token });
+        console.log(token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: false,
+            sameSite: "lax",
+        });
+        res.status(200).json({ success: true, user: foundUser });
     } catch (error) {
         console.error("Login Error:", error);
         res.status(500).json({ success: false, message: error.message });
@@ -54,7 +60,13 @@ const registerUser = async (req, res) => {
             }
         );
 
-        res.status(201).json({ success: true, token });
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: false,
+            sameSite: "lax",
+        });
+
+        res.status(201).json({ success: true, user });
     } catch (error) {
         console.error("Registration Error:", error);
         if (error.code === 11000) {

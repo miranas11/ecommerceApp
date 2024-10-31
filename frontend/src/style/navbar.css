@@ -1,0 +1,24 @@
+/* src/components/Navbar.css */
+.navbar {
+    background-color: #ffffff; /* Primary color */
+    padding: 1.3em;
+    margin-bottom: 50px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar a {
+    color: black; /* Text color */
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}

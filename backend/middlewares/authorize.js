@@ -1,22 +1,22 @@
 import jwt from "jsonwebtoken";
 
 const validateToken = async (req, res, next) => {
-    const header = req.headers["authorization"];
-    if (!header) {
-        return res.status(403).json({ error: "No token provided" });
-    }
-
-    const token = header.slice(7);
+    const token = req.cookies.token;
 
     if (!token) {
-        return res.status(403).json({ error: "No token provided" });
+        return res
+            .status(403)
+            .json({ success: false, message: "No token provided" });
     }
 
     jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
         if (err) {
             return res
                 .status(500)
-                .json({ error: "Failed to authenticate token" });
+                .json({
+                    success: false,
+                    message: "Failed to authenticate token",
+                });
         }
 
         req.user = user;

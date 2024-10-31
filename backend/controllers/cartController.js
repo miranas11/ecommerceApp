@@ -48,7 +48,6 @@ const addToCart = async (req, res) => {
         res.status(200).json({
             status: true,
             message: "Product added to cart successfully",
-            cart,
         });
     } catch (error) {
         console.error("Error adding to cart:", error.message);

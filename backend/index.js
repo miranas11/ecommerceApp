@@ -6,12 +6,20 @@ import authRoute from "./routes/authRoutes.js";
 import cartRoute from "./routes/cartRoutes.js";
 import productRoute from "./routes/productRoutes.js";
 import whitelistRoute from "./routes/whitelistRoutes.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
+app.use(cookieParser());
 
-app.use(cors());
 app.use(express.json());
 dotenv.config();
+
+app.use(
+    cors({
+        origin: "http://localhost:3000",
+        credentials: true,
+    })
+);
 
 mongoose
     .connect(process.env.DATABASE_DEV_URL)
