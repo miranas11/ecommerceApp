@@ -78,8 +78,7 @@ const CartScreen = () => {
                     </p>
 
                     <h3>
-                        Estimated Total:{" "}
-                        <span>${estimatedTotal.toFixed(2)}</span>
+                        Estimated Total: <span>estimatedTotal</span>
                     </h3>
                 </div>
 
@@ -128,7 +127,7 @@ const CartCard = ({ item, onRemoveItem, onQunatityChange }) => {
                 </div>
             </div>
             <div className="cart-card-pricing">
-                <p>Each: ${item.product.price.toFixed(2)}</p>
+                <p>Each: item.product.price</p>
                 <label>
                     Quantity:
                     <select
