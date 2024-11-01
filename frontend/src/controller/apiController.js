@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3001";
-
+//const API_URL = "http://localhost:3001";
+const API_URL = "https://ecommerceapp-production-d570.up.railway.app";
 const getProducts = async (category, minPrice, maxPrice) => {
     try {
         const params = {};

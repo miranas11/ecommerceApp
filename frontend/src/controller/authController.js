@@ -1,6 +1,6 @@
 import axios from "axios";
-const API_URL = "http://localhost:3001";
-
+// const API_URL = "http://localhost:3001";
+const API_URL = "https://ecommerceapp-production-d570.up.railway.app";
 const registerUser = async (name, email, password) => {
     try {
         const response = await axios.post(

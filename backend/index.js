@@ -38,7 +38,7 @@ mongoose
     })
     .catch((e) => {
         console.log(mongoUrl);
-        console.log("ERROR");
+        console.log(`ERROR :${e}`);
     });
 
 app.listen(process.env.PORT, () => {
