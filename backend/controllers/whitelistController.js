@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 import Product from "../models/Product.js";
-import Whitelist from "../models/Whitelist.js";
+import Whitelist from "../models/WhiteList.js";
 
 const getWhitelist = async (req, res) => {
     const userId = req.user.id;
