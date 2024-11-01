@@ -29,7 +29,6 @@ const loginUser = async (req, res) => {
             httpOnly: true,
             secure: true,
             sameSite: "none",
-            domain: "ecommerce-app-eta-virid.vercel.app",
         });
         res.status(200).json({ success: true, user: foundUser });
     } catch (error) {
@@ -64,7 +63,6 @@ const registerUser = async (req, res) => {
             httpOnly: true,
             secure: true,
             sameSite: "none",
-            domain: "ecommerce-app-eta-virid.vercel.app",
         });
 
         res.status(201).json({ success: true, user });
