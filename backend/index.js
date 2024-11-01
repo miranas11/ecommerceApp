@@ -21,10 +21,19 @@ app.use(
     })
 );
 
+const ENV = process.env.ENV;
+
+const mongoUrl =
+    ENV === "DEV"
+        ? process.env.DATABASE_DEV_URL
+        : process.env.DATABASE_PROD_URL;
+
 mongoose
-    .connect(process.env.DATABASE_DEV_URL)
+    .connect(mongoUrl)
     .then(() => {
-        console.log("Connection Open LOCAL");
+        ENV === "DEV"
+            ? console.log("Connection Open LOCAL")
+            : console.log("Connection Open MongoAtlas");
     })
     .catch((e) => {
         console.log("ERROR");

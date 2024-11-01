@@ -25,7 +25,6 @@ const loginUser = async (req, res) => {
             process.env.SECRET_KEY,
             { expiresIn: "1h" }
         );
-        console.log(token);
         res.cookie("token", token, {
             httpOnly: true,
             secure: false,
