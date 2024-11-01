@@ -29,19 +29,7 @@ Note: The first request is going to take around 60 secs to start the server.
     git clone https://github.com/miranas11/ecommerceApp
     ```
 
-2. Change the ENV setting in config.js from "PROD" to "DEV"
-
-    For frontend
-
-    ```bash
-    cd frontend/src/config.js
-    ```
-
-    For Backend
-
-    ```bash
-    cd backend/config.js
-    ```
+2. Change the ENV setting in .env from "PROD" to "DEV"
 
 3. Install the dependencies and start servers:
 
@@ -112,6 +100,7 @@ The `Cart` model links user carts with products and manages item details.
 
 Represents products in the database.
 
+-   **\_id**: References the `User` model (required).
 -   **name**: Name of the product (required, trimmed).
 -   **description**: Product description (required).
 -   **price**: Price of the product (required, min: 0).
@@ -138,6 +127,36 @@ Tracks products whitelisted by users.
 These models facilitate user-cart interactions, product management, user authentication, and whitelisting functionality.
 
 ## Component Details (REACT)
+
+### Handling Backend Response Messages
+
+In the frontend, responses from the backend are properly handled to ensure the user is informed of the action's outcome via `alert` messages. This approach helps provide clear feedback to users for both successful and failed operations.
+
+#### How it Works:
+
+-   **Success Handling**: When the backend returns a successful response (`status: true`), an alert message is shown to notify the user that the action (e.g., adding a product to the cart) was successful.
+-   **Failure Handling**: If the backend response indicates an error or the operation fails, the error message from the backend is displayed through an alert to inform the user of the issue.
+
+#### Example Code:
+
+```javascript
+try {
+    const response = await axios.post(
+        `${API_URL}/cart`,
+        { productId },
+        { withCredentials: true }
+    );
+    if (response.data.status) {
+        alert("Product added to cart successfully");
+    } else {
+        alert(response.data.message);
+    }
+    return true;
+} catch (error) {
+    console.log(error.response.data.message);
+    alert(error.response.data.message);
+}
+```
 
 ## Backend Structure
 
