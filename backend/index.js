@@ -37,10 +37,8 @@ mongoose
         ENV === "DEV"
             ? console.log("Connection Open LOCAL")
             : console.log("Connection Open MongoAtlas");
-        console.log(mongoUrl);
     })
     .catch((e) => {
-        console.log(mongoUrl);
         console.log(`ERROR :${e}`);
     });
 

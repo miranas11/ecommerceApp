@@ -1,7 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import "../style/productDetailScreen.css";
-import productImage from "../assets/product.png";
 import { CiHeart } from "react-icons/ci";
 import { IoBagHandleOutline } from "react-icons/io5";
 import apiController from "../controller/apiController";
@@ -25,7 +24,7 @@ const ProductDetailScreen = () => {
     return (
         <div className="product-detail-screen">
             <div className="product-image-container">
-                <img src={product.image || productImage} alt={product.name} />
+                <img src={product.imageUrl} />
             </div>
             <div className="product-info">
                 <h1>{product.name}</h1>
