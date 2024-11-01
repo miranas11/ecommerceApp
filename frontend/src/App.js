@@ -4,8 +4,9 @@ import AuthScreen from "./components/AuthScreen";
 import ProductsScreen from "./components/ProductsScreen";
 import ProductDetailScreen from "./components/ProductDetailScreen";
 import CartScreen from "./components/CartScreen";
-import WhiteListScreen from "./components/WhiteListScreen";
 import Navbar from "./components/utils/Navbar";
+import WishListScreen from "./components/WishListScreen";
+import NotFound from "./components/utils/NotFound";
 
 function App() {
     return (
@@ -19,7 +20,8 @@ function App() {
                     element={<ProductDetailScreen />}
                 />{" "}
                 <Route path="/cart" element={<CartScreen />} />{" "}
-                <Route path="/whitelist" element={<WhiteListScreen />} />
+                <Route path="/wishlist" element={<WishListScreen />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
     );

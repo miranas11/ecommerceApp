@@ -1,0 +1,102 @@
+.wishlist-card {
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-image-container {
+    position: relative;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.remove-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #fff;
+    border: none;
+    color: #333;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.card-details {
+    padding: 10px;
+    text-align: left;
+}
+
+.item-title {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.item-price {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.move-to-bag-button {
+    padding: 8px 12px;
+    background-color: #ff3e6c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.move-to-bag-button:hover {
+    background-color: #e0355c;
+}
+
+@media (max-width: 820px) {
+    .wishlist-card {
+        width: 200px;
+    }
+
+    .item-title {
+        font-size: 0.9rem;
+    }
+
+    .item-price {
+        font-size: 0.8rem;
+    }
+
+    .move-to-bag-button {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 412px) {
+    .wishlist-card {
+        width: 150px;
+    }
+
+    .item-title {
+        font-size: 0.8rem;
+    }
+
+    .item-price {
+        font-size: 0.7rem;
+    }
+
+    .move-to-bag-button {
+        padding: 4px 8px;
+        font-size: 0.7rem;
+    }
+}

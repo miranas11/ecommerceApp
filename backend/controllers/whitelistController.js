@@ -2,19 +2,19 @@ import mongoose from "mongoose";
 import Whitelist from "../models/Whitelist.js";
 import Product from "../models/Product.js";
 
-// Get the whitelist for the authenticated user
 const getWhitelist = async (req, res) => {
-    const userId = req.user.id; // Get the user ID from the request
+    const userId = req.user.id;
 
     try {
         const whitelist = await Whitelist.findById(userId).populate(
-            "items.productId"
+            "items.productId",
+            "name price imageUrl"
         );
 
         if (!whitelist) {
-            return res.status(404).json({
+            return res.status(200).json({
                 success: true,
-                items: {},
+                items: [],
             });
         }
 
@@ -35,8 +35,8 @@ const getWhitelist = async (req, res) => {
 
 // Add a product to the whitelist
 const addToWhitelist = async (req, res) => {
-    const userId = req.user.id; // Get the user ID from the request
-    const { productId } = req.body; // Get the product ID from the request body
+    const userId = req.user.id;
+    const { productId } = req.body;
 
     if (!productId || !mongoose.Types.ObjectId.isValid(productId)) {
         return res.status(400).json({

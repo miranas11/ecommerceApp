@@ -1,6 +1,4 @@
 import axios from "axios";
-import { jwtDecode } from "jwt-decode";
-import Cookies from "js-cookie";
 const API_URL = "http://localhost:3001";
 
 const registerUser = async (name, email, password) => {
@@ -17,8 +15,7 @@ const registerUser = async (name, email, password) => {
             }
         );
 
-        console.log(response);
-        return response;
+        return response.data;
     } catch (error) {
         console.log("Error registering admin:", error.response.data);
         return error.response;
@@ -37,11 +34,26 @@ const loginUser = async (email, password) => {
                 withCredentials: true,
             }
         );
-        console.log(response.data);
         return response;
     } catch (error) {
         return error.response;
     }
 };
 
-export default { registerUser, loginUser };
+const validateToken = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/validate`, {
+            withCredentials: true,
+        });
+
+        return response.data;
+    } catch (error) {
+        console.log(
+            "Invalid or expired token:",
+            error.response?.data?.message || error.message
+        );
+        return error.response.data;
+    }
+};
+
+export default { registerUser, loginUser, validateToken };

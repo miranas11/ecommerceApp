@@ -15,7 +15,8 @@ code {
 :root {
     --secondary-color: #081429;
     --primary-color: #228380;
-    background-color: #f8f8f8;
+    --third-color: #ff3e6c;
+    background-color: #ffffff;
     --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     --btn-padding: 15px;
     --border-radius: 8px;

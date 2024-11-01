@@ -37,4 +37,4 @@ app.listen(process.env.PORT, () => {
 app.use("/", authRoute);
 app.use("/products", productRoute);
 app.use("/cart", cartRoute);
-app.use("/whitelist", whitelistRoute);
+app.use("/wishlist", whitelistRoute);

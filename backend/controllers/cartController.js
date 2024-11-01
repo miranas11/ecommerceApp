@@ -14,7 +14,6 @@ const addToCart = async (req, res) => {
     const userId = req.user.id;
 
     try {
-        console.log("abc");
         const productExists = await Product.findById(productId);
         if (!productExists) {
             return res.status(404).json({
@@ -37,6 +36,13 @@ const addToCart = async (req, res) => {
             );
 
             if (existingItem) {
+                if (existingItem.quantity == 10) {
+                    return res.status(400).json({
+                        success: false,
+                        message:
+                            "Maximum quantity for this item reached. You can only add up to 10 items.",
+                    });
+                }
                 //if the product exists, increase the quantity by 1
                 existingItem.quantity += 1;
             } else {
@@ -62,20 +68,18 @@ const getCart = async (req, res) => {
     const userId = req.user.id;
 
     try {
-        // Find the user's cart and populate the items' productId
         const cart = await Cart.findById(userId).populate("items.productId");
 
         if (!cart) {
             return res.status(200).json({
                 success: true,
                 message: "Cart retrieved successfully",
-                items: {},
+                items: [],
             });
         }
 
-        // Convert the populated items to an array
         const itemsArray = cart.items.map((item) => ({
-            product: item.productId, // This will contain the populated product data
+            product: item.productId,
             quantity: item.quantity,
         }));
 
@@ -85,7 +89,7 @@ const getCart = async (req, res) => {
             items: itemsArray,
         });
     } catch (error) {
-        console.error("Error retrieving cart:", error.message);
+        console.log("Error retrieving cart:", error.message);
         res.status(500).json({
             message: "Internal server error",
             error: error.message,

@@ -7,23 +7,21 @@ import authController from "../controller/authController.js";
 import Loading from "./utils/Loading.jsx";
 
 const AuthScreen = () => {
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
     const [showLogin, setShowLogin] = useState(true);
 
-    // useEffect(() => {
-    //     const token = localStorage.getItem("token");
-    //     if (!token) {
-    //         setIsLoading(false);
-    //         return;
-    //     }
-    //     const validate = async () => {
-    //         const response = await authController.validateToken();
-    //         if (response.status === 201) navigate("/shop/home");
-    //         setIsLoading(false);
-    //     };
-    //     validate();
-    // }, []);
+    useEffect(() => {
+        const validate = async () => {
+            const response = await authController.validateToken();
+
+            if (response.success) {
+                navigate("/");
+            }
+            setIsLoading(false);
+        };
+        validate();
+    }, []);
 
     const handleLogin = () => {
         setShowLogin(true);
@@ -66,8 +64,8 @@ const Login = ({ handleRegister }) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const response = await authController.loginUser(email, password);
-        if (response.status === 200) {
-            // navigate("/shop/home");
+        if (response.data.success) {
+            navigate("/");
         } else {
             setError(response.data.message);
         }
@@ -132,8 +130,9 @@ const Register = ({ handleLogin }) => {
             email,
             password
         );
-        if (response.status === 201) {
-            // navigate("/shop/home");
+
+        if (response.success) {
+            navigate("/");
         } else {
             setError(response.data.message);
         }

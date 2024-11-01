@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Men Solid Round Neck Pure Cotton T-Shirt",
+        "description": "A comfortable, high-quality round neck t-shirt made from pure cotton. Perfect for casual wear.",
+        "price": 399,
+        "category": "fashion",
+        "imageUrl": "https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/9/b/4/s-xytsrt37-xyxx-original-imah222zhuypwxtf.jpeg?q=70",
+        "stock": 100
+    },
+    {
+        "name": "Men Solid Round Neck Polyester Beige T-Shirt",
+        "description": "A stylish and comfortable polyester beige t-shirt with a round neck design, ideal for casual outings.",
+        "price": 219,
+        "category": "fashion",
+        "imageUrl": "https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/b/n/z/xl-men-waffle-knit-ds-beige-madfrog-original-imahfhszza4phwa6.jpeg?q=70",
+        "stock": 100
+    },
+    {
+        "name": "Printed Bollywood Georgette, Silk Blend Saree",
+        "description": "A beautiful pink printed Bollywood-style saree made from a blend of georgette and silk, perfect for festive occasions and traditional events.",
+        "price": 590,
+        "category": "fashion",
+        "imageUrl": "https://rukminim2.flixcart.com/image/612/612/xif0q/shopsy-sari/7/d/c/free-bollywood-cut-work-hot-pink-saree-sindharat-fashion-original-imah5fnyg5qyyytn.jpeg?q=70",
+        "stock": 100
+    },
+    {
+        "name": "Einstein Box Science Experiment Kit",
+        "description": "A comprehensive science kit with 120 experiments for children aged 8 and above. Perfect for hands-on learning and fostering an interest in chemistry and science.",
+        "price": 699,
+        "category": "toys",
+        "imageUrl": "https://rukminim2.flixcart.com/image/612/612/xif0q/learning-toy/z/f/t/science-experiment-kit-chemistry-kit-toys-for-boys-and-girls-original-imagp25ajn2fwgfq.jpeg?q=70",
+        "stock": 100
+    },
+    {
+        "name": "NIVIA Shining Star Football - Size 5",
+        "description": "A high-quality football designed for durability and performance. Perfect for practice and competitive play, made for football enthusiasts.",
+        "price": 949,
+        "category": "sports",
+        "imageUrl": "https://rukminim2.flixcart.com/image/612/612/xif0q/ball/y/a/0/400-425-shining-star-5-22-1-fb-292-football-nivia-original-imahfxdbfhrsfvu7.jpeg?q=70",
+        "stock": 100
+    },
+    {
+        "name": "Xbox Series S Console SSD 512 GB",
+        "description": "The Xbox Series S is a sleek and compact gaming console with a 512 GB SSD for fast performance and seamless gaming. Enjoy next-gen gaming experiences with stunning graphics and speed.",
+        "price": 31490,
+        "category": "electronics",
+        "imageUrl": "https://rukminim2.flixcart.com/image/612/612/xif0q/gamingconsole/m/l/g/512-series-s-console-ssd-xbox-yes-original-imah2bybkdbhfhsq.jpeg?q=70",
+        "stock": 50
+    },
+    {
+        "name": "SONY PlayStation5 Digital Edition (Slim)",
+        "description": "The SONY PlayStation5 Digital Edition (Slim) offers an immersive gaming experience with high-speed performance and stunning graphics. Ideal for digital game enthusiasts.",
+        "price": 44990,
+        "category": "electronics",
+        "imageUrl": "https://rukminim2.flixcart.com/image/612/612/xif0q/gamingconsole/0/s/a/-original-imah247t85y2pmv4.jpeg?q=70",
+        "stock": 30
+    }
+]

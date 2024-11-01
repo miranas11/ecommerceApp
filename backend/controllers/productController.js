@@ -4,8 +4,25 @@ import Product from "../models/Product.js";
 const getProducts = async (req, res) => {
     const { category, minPrice, maxPrice } = req.query;
 
-    //filter object based on the query parameters
+    const allowedCategories = [
+        "electronics",
+        "fashion",
+        "home",
+        "sports",
+        "toys",
+        "other",
+    ];
     const filter = {};
+    if (category) {
+        if (allowedCategories.includes(category.toLowerCase())) {
+            filter.category = category;
+        } else {
+            return res
+                .status(400)
+                .json({ success: false, message: "Invalid category" });
+        }
+    }
+
     if (category) filter.category = category;
     if (minPrice || maxPrice) {
         filter.price = {};
@@ -23,29 +40,52 @@ const getProducts = async (req, res) => {
 };
 
 const addProduct = async (req, res) => {
-    const { name, description, price, category, imageUrl, stock } = req.body;
+    const products = req.body;
 
-    // Validation check to ensure required fields are provided
-    if (!name || !price || !category || stock == null) {
+    // Validation check to ensure the array is provided and is not empty
+    if (!Array.isArray(products) || products.length === 0) {
         return res
             .status(400)
-            .json({ success: false, message: "Required fields are missing." });
+            .json({
+                success: false,
+                message: "Product array is required and should not be empty.",
+            });
     }
 
     try {
-        const newProduct = new Product({
-            name,
-            description,
-            price,
-            category,
-            imageUrl,
-            stock,
-        });
+        const savedProducts = [];
 
-        const savedProduct = await newProduct.save();
-        res.status(201).json({ success: true, product: savedProduct });
+        for (const product of products) {
+            const { name, description, price, category, imageUrl, stock } =
+                product;
+
+            // Validation check for each product
+            if (!name || !price || !category || stock == null) {
+                return res
+                    .status(400)
+                    .json({
+                        success: false,
+                        message:
+                            "Required fields are missing in one or more products.",
+                    });
+            }
+
+            const newProduct = new Product({
+                name,
+                description,
+                price,
+                category,
+                imageUrl,
+                stock,
+            });
+
+            const savedProduct = await newProduct.save();
+            savedProducts.push(savedProduct);
+        }
+
+        res.status(201).json({ success: true, products: savedProducts });
     } catch (error) {
-        console.error("Error adding product:", error);
+        console.error("Error adding products:", error);
         res.status(500).json({ success: false, message: "Server error" });
     }
 };
