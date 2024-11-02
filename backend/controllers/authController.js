@@ -28,7 +28,7 @@ const loginUser = async (req, res) => {
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,
-            sameSite: "none",
+            sameSite: "strict",
         });
         res.status(200).json({ success: true, user: foundUser });
     } catch (error) {
@@ -62,7 +62,7 @@ const registerUser = async (req, res) => {
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,
-            sameSite: "none",
+            sameSite: "strict",
         });
 
         res.status(201).json({ success: true, user });
