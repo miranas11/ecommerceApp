@@ -1,5 +1,4 @@
 import React from "react";
-import productImage from "../../assets/product.png";
 import { useNavigate } from "react-router-dom";
 import { IoBagHandleOutline } from "react-icons/io5";
 import apiController from "../../controller/apiController";
