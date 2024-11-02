@@ -4,7 +4,7 @@
     justify-content: space-between;
     padding: 10px 20px;
     background-color: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -35,7 +35,8 @@
     position: relative;
 }
 
-.logout-button {
+.logout-button,
+.login-button {
     background-color: #ff4d4d;
     color: white;
     border: none;
@@ -44,6 +45,10 @@
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.3s ease;
+}
+
+.login-button {
+    background-color: var(--secondary-color);
 }
 
 .logout-button:hover {
@@ -55,7 +60,8 @@
 }
 
 @media (max-width: 412px) {
-    .logout-button {
+    .logout-button,
+    .login-button {
         padding: 5px 11px;
         border-radius: 4px;
         font-size: 10px;

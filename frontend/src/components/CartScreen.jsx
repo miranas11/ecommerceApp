@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../style/cartScreen.css";
 import "../style/cartCard.css";
 import apiController from "../controller/apiController";
-import productImage from "../assets/product.png";
 import Loading from "./utils/Loading";
 import LoginPromptScreen from "./utils/LoginPromptScreen";
 

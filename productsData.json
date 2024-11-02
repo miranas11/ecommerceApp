@@ -54,5 +54,21 @@
         "category": "electronics",
         "imageUrl": "https://rukminim2.flixcart.com/image/612/612/xif0q/gamingconsole/0/s/a/-original-imah247t85y2pmv4.jpeg?q=70",
         "stock": 30
+    },
+    {
+        "name": "Apple iPhone 16 Pro (Desert Titanium, 256 GB)",
+        "description": "Experience cutting-edge technology with the Apple iPhone 16 Pro. Featuring a 16.0 cm (6.3 inch) Super Retina XDR display, a powerful A18 Pro chip with 6-core processor, and a triple rear camera setup (48MP + 48MP + 12MP) along with a 12MP front camera. Enjoy 256 GB ROM for ample storage and a sleek Desert Titanium finish.",
+        "price": 129900,
+        "category": "electronics",
+        "imageUrl": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/7/d/z/-original-imah4jywfm9uuvzw.jpeg?q=70",
+        "stock": 3
+    },
+    {
+        "name": "Caprese Women Beige Handbag",
+        "description": "A stylish and elegant beige handbag from Caprese, perfect for everyday use. Crafted with high-quality materials, offering ample space and a comfortable strap for easy carrying.",
+        "price": 1329,
+        "category": "fashion",
+        "imageUrl": "https://rukminim2.flixcart.com/image/612/612/xif0q/hand-messenger-bag/0/c/9/-original-imah4dmv5tya6pfp.jpeg?q=70",
+        "stock": 50
     }
 ]

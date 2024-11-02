@@ -203,6 +203,25 @@ const removeFromWishlist = async (productId) => {
     }
 };
 
+const getProductById = async (productId) => {
+    try {
+        const response = await axios.get(`${API_URL}/products/${productId}`);
+
+        if (response.data.status) {
+            return response.data;
+        } else {
+            console.log("Product not found");
+            return response.data;
+        }
+    } catch (error) {
+        console.log(
+            "Error fetching product by ID:",
+            error.response?.data?.message || error.message
+        );
+        return error.response.data;
+    }
+};
+
 export default {
     getProducts,
     addToCart,
@@ -212,4 +231,5 @@ export default {
     removeItemFromCart,
     getWishlist,
     removeFromWishlist,
+    getProductById,
 };

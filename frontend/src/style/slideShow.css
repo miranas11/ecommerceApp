@@ -1,0 +1,103 @@
+.carousel-container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    top: 30px;
+    margin-bottom: 80px;
+    margin-top: 0px;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    transition: opacity 0.5s ease;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 380px;
+}
+
+.slide.active {
+    display: block;
+    opacity: 1;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    color: var(--secondary-color);
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transform: translateY(-50%);
+}
+
+.prev {
+    left: 1px;
+}
+
+.next {
+    right: 1px;
+}
+
+.dots {
+    bottom: 0;
+    left: 44%;
+    position: absolute;
+    text-align: center;
+    padding: 10px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+@media (max-width: 768px) {
+    .slide img {
+        max-height: 300px;
+    }
+
+    .prev,
+    .next {
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        top: 20px;
+        margin-bottom: 50px;
+    }
+
+    .slide img {
+        max-height: 250px;
+    }
+}

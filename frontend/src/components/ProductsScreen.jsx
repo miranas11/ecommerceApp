@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import timelineImage from "../assets/timeline.png";
 import "../style/productScreen.css";
 import apiController from "../controller/apiController.js";
 import ProductCard from "./utils/ProductCard.jsx";
+import SlideShow from "./utils/SlideShow.jsx";
+import Loading from "./utils/Loading.jsx";
 
 const ProductsScreen = () => {
     const [productsList, setProductsList] = useState([]);
-
+    const [isLoading, setIsLoading] = useState(true);
     const [category, setCategory] = useState("");
     const [minPrice, setMinPrice] = useState("");
     const [maxPrice, setMaxPrice] = useState("");
@@ -28,6 +29,7 @@ const ProductsScreen = () => {
             maxPrice
         );
         setProductsList(response);
+        setIsLoading(false);
     };
     useEffect(() => {
         getProducts();
@@ -37,15 +39,13 @@ const ProductsScreen = () => {
         getProducts();
     };
 
+    if (isLoading) {
+        return <Loading />;
+    }
+
     return (
         <div>
-            <div className="timeline-container">
-                <img
-                    src={timelineImage}
-                    alt="Timeline"
-                    className="timeline-image"
-                />
-            </div>
+            <SlideShow />
             <div className="filter-container">
                 <select
                     value={category}

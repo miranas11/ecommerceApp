@@ -44,12 +44,10 @@ const addProduct = async (req, res) => {
 
     // Validation check to ensure the array is provided and is not empty
     if (!Array.isArray(products) || products.length === 0) {
-        return res
-            .status(400)
-            .json({
-                success: false,
-                message: "Product array is required and should not be empty.",
-            });
+        return res.status(400).json({
+            success: false,
+            message: "Product array is required and should not be empty.",
+        });
     }
 
     try {
@@ -61,13 +59,11 @@ const addProduct = async (req, res) => {
 
             // Validation check for each product
             if (!name || !price || !category || stock == null) {
-                return res
-                    .status(400)
-                    .json({
-                        success: false,
-                        message:
-                            "Required fields are missing in one or more products.",
-                    });
+                return res.status(400).json({
+                    success: false,
+                    message:
+                        "Required fields are missing in one or more products.",
+                });
             }
 
             const newProduct = new Product({
@@ -94,7 +90,9 @@ const getProductById = async (req, res) => {
     const { id } = req.params;
 
     if (!id || !mongoose.Types.ObjectId.isValid(id.trim())) {
-        return res.status(400).json({ message: "Invalid product ID" });
+        return res
+            .status(400)
+            .json({ status: false, message: "Invalid product ID" });
     }
 
     try {
