@@ -34,7 +34,6 @@ const getWhitelist = async (req, res) => {
     }
 };
 
-// Add a product to the whitelist
 const addToWhitelist = async (req, res) => {
     const userId = req.user.id;
     const { productId } = req.body;
@@ -56,14 +55,12 @@ const addToWhitelist = async (req, res) => {
         }
         let whitelist = await Whitelist.findById(userId);
 
-        // If the whitelist doesn't exist, create a new one
         if (!whitelist) {
             whitelist = new Whitelist({
                 _id: userId,
                 items: [{ productId }],
             });
         } else {
-            // Check if the product already exists in the whitelist
             const productExists = whitelist.items.some(
                 (item) => item.productId.toString() === productId
             );
@@ -75,7 +72,6 @@ const addToWhitelist = async (req, res) => {
                 });
             }
 
-            // If not, add the new product to the whitelist
             whitelist.items.push({ productId });
         }
 
@@ -95,10 +91,9 @@ const addToWhitelist = async (req, res) => {
     }
 };
 
-// Remove a product from the whitelist
 const removeFromWhiteList = async (req, res) => {
-    const userId = req.user.id; // Get the user ID from the request
-    const { id: productId } = req.params; // Get the product ID from request parameters
+    const userId = req.user.id;
+    const { id: productId } = req.params;
 
     if (!productId || !mongoose.Types.ObjectId.isValid(productId)) {
         return res.status(400).json({
@@ -118,7 +113,6 @@ const removeFromWhiteList = async (req, res) => {
             });
         }
 
-        // Check if the product exists in the whitelist
         const itemIndex = whitelist.items.findIndex(
             (item) => item.productId.toString() === productId
         );

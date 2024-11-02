@@ -2,6 +2,9 @@ import axios from "axios";
 
 //const API_URL = "http://localhost:3001";
 const API_URL = "https://ecommerceapp-production-d570.up.railway.app";
+
+const getToken = () => localStorage.getItem("jwtToken");
+
 const getProducts = async (category, minPrice, maxPrice) => {
     try {
         const params = {};
@@ -11,21 +14,31 @@ const getProducts = async (category, minPrice, maxPrice) => {
 
         const response = await axios.get(`${API_URL}/products`, {
             params,
-            withCredentials: true,
+            headers: {
+                Authorization: `Bearer ${getToken()}`,
+            },
         });
 
         return response.data.products;
     } catch (error) {
-        console.log("Error getting products:", error.response.data.message);
+        console.log(
+            "Error getting products:",
+            error.response?.data?.message || error.message
+        );
         return error.response;
     }
 };
+
 const addToCart = async (productId) => {
     try {
         const response = await axios.post(
             `${API_URL}/cart`,
             { productId },
-            { withCredentials: true }
+            {
+                headers: {
+                    Authorization: `Bearer ${getToken()}`,
+                },
+            }
         );
         if (response.data.status) {
             alert("Product added to cart successfully");
@@ -35,15 +48,17 @@ const addToCart = async (productId) => {
         }
         return true;
     } catch (error) {
-        console.log(error.response.data.message);
-        alert(error.response.data.message);
+        console.log(error.response?.data?.message || error.message);
+        alert(error.response?.data?.message || "Failed to add product to cart");
     }
 };
 
 const getCart = async () => {
     try {
         const response = await axios.get(`${API_URL}/cart`, {
-            withCredentials: true,
+            headers: {
+                Authorization: `Bearer ${getToken()}`,
+            },
         });
         if (response.data.success) {
             return response.data.items;
@@ -55,8 +70,7 @@ const getCart = async () => {
             "Error fetching cart:",
             error.response?.data?.message || error.message
         );
-
-        return error.response.status;
+        return error.response?.status;
     }
 };
 
@@ -65,7 +79,11 @@ const updateQuantity = async (productId, quantity) => {
         const response = await axios.put(
             `${API_URL}/cart/${productId}`,
             { quantity },
-            { withCredentials: true }
+            {
+                headers: {
+                    Authorization: `Bearer ${getToken()}`,
+                },
+            }
         );
         if (response.data.success) {
             alert("Quantity updated successfully");
@@ -83,10 +101,13 @@ const updateQuantity = async (productId, quantity) => {
         return false;
     }
 };
+
 const removeItemFromCart = async (productId) => {
     try {
         const response = await axios.delete(`${API_URL}/cart/${productId}`, {
-            withCredentials: true,
+            headers: {
+                Authorization: `Bearer ${getToken()}`,
+            },
         });
         if (response.data.success) {
             alert("Item removed from cart successfully");
@@ -110,7 +131,9 @@ const removeItemFromCart = async (productId) => {
 const getWishlist = async () => {
     try {
         const response = await axios.get(`${API_URL}/wishlist`, {
-            withCredentials: true,
+            headers: {
+                Authorization: `Bearer ${getToken()}`,
+            },
         });
         if (response.data.success) {
             return response.data.items;
@@ -122,8 +145,7 @@ const getWishlist = async () => {
             "Error retrieving wishlist:",
             error.response?.data?.message || error.message
         );
-
-        return error.response.status;
+        return error.response?.status;
     }
 };
 
@@ -132,7 +154,11 @@ const addToWishList = async (productId) => {
         const response = await axios.post(
             `${API_URL}/wishlist`,
             { productId },
-            { withCredentials: true }
+            {
+                headers: {
+                    Authorization: `Bearer ${getToken()}`,
+                },
+            }
         );
         if (response.data.success) {
             alert("Product added to wishlist successfully");
@@ -142,8 +168,10 @@ const addToWishList = async (productId) => {
         }
         return true;
     } catch (error) {
-        console.log(error.response.data.message);
-        alert(error.response.data.message);
+        console.log(error.response?.data?.message || error.message);
+        alert(
+            error.response?.data?.message || "Failed to add product to wishlist"
+        );
     }
 };
 
@@ -152,7 +180,9 @@ const removeFromWishlist = async (productId) => {
         const response = await axios.delete(
             `${API_URL}/wishlist/${productId}`,
             {
-                withCredentials: true,
+                headers: {
+                    Authorization: `Bearer ${getToken()}`,
+                },
             }
         );
         if (response.data.success) {

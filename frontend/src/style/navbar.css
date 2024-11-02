@@ -35,7 +35,32 @@
     position: relative;
 }
 
+.logout-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #e60000;
+}
+
+.logout-button:focus {
+    outline: none;
+}
+
 @media (max-width: 412px) {
+    .logout-button {
+        padding: 5px 11px;
+        border-radius: 4px;
+        font-size: 10px;
+    }
+
     .navbar {
         padding: 8px 20px;
 

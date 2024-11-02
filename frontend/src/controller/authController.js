@@ -14,7 +14,7 @@ const registerUser = async (name, email, password) => {
                 withCredentials: true,
             }
         );
-
+        localStorage.setItem("jwtToken", response.data.token);
         return response.data;
     } catch (error) {
         console.log("Error registering admin:", error.response.data);
@@ -34,6 +34,7 @@ const loginUser = async (email, password) => {
                 withCredentials: true,
             }
         );
+        localStorage.setItem("jwtToken", response.data.token);
         return response;
     } catch (error) {
         return error.response;
@@ -42,8 +43,12 @@ const loginUser = async (email, password) => {
 
 const validateToken = async () => {
     try {
+        const token = localStorage.getItem("jwtToken");
+
         const response = await axios.get(`${API_URL}/validate`, {
-            withCredentials: true,
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
         });
 
         return response.data;
