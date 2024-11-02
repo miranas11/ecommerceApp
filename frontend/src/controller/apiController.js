@@ -31,6 +31,7 @@ const addToCart = async (productId) => {
             alert("Product added to cart successfully");
         } else {
             alert(response.data.message);
+            return false;
         }
         return true;
     } catch (error) {
@@ -137,7 +138,9 @@ const addToWishList = async (productId) => {
             alert("Product added to wishlist successfully");
         } else {
             alert(response.data.message);
+            return false;
         }
+        return true;
     } catch (error) {
         console.log(error.response.data.message);
         alert(error.response.data.message);

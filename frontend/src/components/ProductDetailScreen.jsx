@@ -1,11 +1,12 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../style/productDetailScreen.css";
 import { CiHeart } from "react-icons/ci";
 import { IoBagHandleOutline } from "react-icons/io5";
 import apiController from "../controller/apiController";
 
 const ProductDetailScreen = () => {
+    const navigate = useNavigate();
     const location = useLocation();
     const { product } = location.state || {};
 
@@ -14,11 +15,17 @@ const ProductDetailScreen = () => {
     }
 
     const addToCart = async () => {
-        await apiController.addToCart(product._id);
+        const response = await apiController.addToCart(product._id);
+        if (!response) {
+            navigate("/auth");
+        }
     };
 
     const addToWishList = async () => {
-        apiController.addToWishList(product._id);
+        const response = await apiController.addToWishList(product._id);
+        if (!response) {
+            navigate("/auth");
+        }
     };
 
     return (
