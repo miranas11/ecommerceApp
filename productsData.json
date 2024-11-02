@@ -70,5 +70,13 @@
         "category": "fashion",
         "imageUrl": "https://rukminim2.flixcart.com/image/612/612/xif0q/hand-messenger-bag/0/c/9/-original-imah4dmv5tya6pfp.jpeg?q=70",
         "stock": 50
+    },
+    {
+        "name": "Apple iPhone 12 (White, 64 GB)",
+        "description": "Apple iPhone 12 with 64 GB ROM and a 15.49 cm (6.1 inch) Super Retina XDR Display. Features a 12MP + 12MP rear camera and 12MP front camera. Powered by an A14 Bionic Chip with Next Generation Neural Engine, Ceramic Shield, and IP68 water resistance. All Screen OLED Display with 4K Dolby Vision HDR Recording.",
+        "price": 30999,
+        "category": "electronics",
+        "imageUrl": "https://rukminim2.flixcart.com/image/312/312/kg8avm80/mobile/j/f/9/apple-iphone-12-dummyapplefsn-original-imafwg8dkyh2zgrh.jpeg?q=70",
+        "stock": 100
     }
 ]
