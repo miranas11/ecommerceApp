@@ -43,13 +43,13 @@ const addToCart = async (productId) => {
         if (response.data.status) {
             alert("Product added to cart successfully");
         } else {
-            alert(response.data.message);
+            alert("Please login to add to Cart");
             return false;
         }
         return true;
     } catch (error) {
         console.log(error.response?.data?.message || error.message);
-        alert(error.response?.data?.message || "Failed to add product to cart");
+        alert("Please login to add to Cart");
     }
 };
 
@@ -163,15 +163,13 @@ const addToWishList = async (productId) => {
         if (response.data.success) {
             alert("Product added to wishlist successfully");
         } else {
-            alert(response.data.message);
+            alert("Please login to add to wishlist");
             return false;
         }
         return true;
     } catch (error) {
         console.log(error.response?.data?.message || error.message);
-        alert(
-            error.response?.data?.message || "Failed to add product to wishlist"
-        );
+        alert("Please login to add to wishlist");
     }
 };
 
