@@ -3,8 +3,10 @@ import WishlistCard from "./utils/WishListCard";
 import apiController from "../controller/apiController";
 import "../style/wishListScreen.css";
 import LoginPromptScreen from "./utils/LoginPromptScreen";
+import Loading from "./utils/Loading";
 
 const WishlistScreen = () => {
+    const [isLoading, setIsLoading] = useState(true);
     const [wishlistItems, setWishlistItems] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(true);
 
@@ -13,9 +15,10 @@ const WishlistScreen = () => {
             const response = await apiController.getWishlist();
             if (response === 403 || response === 500) {
                 setIsLoggedIn(false);
+            } else {
+                setWishlistItems(response);
             }
-
-            setWishlistItems(response);
+            setIsLoading(false);
         };
         fetchWishlist();
     }, []);
@@ -32,6 +35,10 @@ const WishlistScreen = () => {
             console.error("Error removing item:", error);
         }
     };
+
+    if (isLoading) {
+        return <Loading />;
+    }
 
     if (!isLoggedIn) {
         return <LoginPromptScreen />;
